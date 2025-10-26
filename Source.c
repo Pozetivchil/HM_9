@@ -1,80 +1,41 @@
 #include <stdio.h>
+#include <math.h>
 #include <locale.h>
-#define ROW 9
-#define COL 9
-#define ROW_2 5
-#define COL_2 5
 
-
-int main()
+int main() 
 {
-	setlocale(LC_ALL, "RUS");
+    setlocale(LC_ALL, "RUS");
+    char ch;
+    double angle;
+    int base;
 
-	zadanie2(123456789.0);
+    printf("Введите символ: ");
+    scanf(" %c", &ch);
 
-	return 0;
-}
+    printf("Введите угол a (в градусах, 1–89): ");
+    scanf("%lf", &angle);
 
-int zadanie1_2()
-{
-	int row, col;
-	printf("\n");
-	for (row = 1; row <= ROW; ++row)
-	{
-		for (col = 1; col <= row; col++)
-		{
-			printf("%5d", col * row);
-		}
-		printf("\n");
-	}
+    printf("Введите длину основания: ");
+    scanf("%d", &base);
+    printf("\n");
 
-	system("pause");
+    double rad = angle * 3.14 / 180.0;
 
-	return 1;
-}
+    int height = (int)((base / 2.0) * tan(rad) + 0.5);
 
-int zadanie1_3()
-{
-	int row, col;
-	printf("\n");
-	for (row = 1; row <= ROW_2; ++row)
-	{
-		for (col = row; col <= COL_2; col++)
-		{
-			printf("%5d", 5 * row);
-		}
-		printf("\n");
-	}
+    for (int i = 0; i < height; i++) 
+    {
+        int width = 1 + (i * (base - 1)) / (height - 1);
+        if (height == 1) width = base;
 
-	system("pause");
+        int spaces = (base - width) / 2;
 
-	return 1;
-}
+        for (int s = 0; s < spaces; s++)
+            printf(" ");
+        for (int w = 0; w < width; w++) 
+            printf("%c", ch);
+        printf("\n");
+    }
 
-int zadanie2(double num)
-{
-	int count = 0;
-
-	for (int i = 0; i <= lenOfIntVar(num); i++)
-	{
-		if (num / 10 == 3)
-		{
-			count++;
-		}
-		num /= 10;
-	}
-
-	printf("%d", count);
-}
-
-int lenOfIntVar(double num)
-{
-	int lenOfNum = 1;
-	while (num / 10 >= 1)
-	{
-		num /= 10;
-		++lenOfNum;
-	}
-	
-	return lenOfNum;
+    return 0;
 }
