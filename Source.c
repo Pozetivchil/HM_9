@@ -4,18 +4,17 @@
 
 int main() 
 {
-    setlocale(LC_ALL, "RUS");
     char ch;
     double angle;
     int base;
 
-    printf("Введите символ: ");
+    printf("Enter symbol: ");
     scanf(" %c", &ch);
 
-    printf("Введите угол a (в градусах, 1–89): ");
+    printf("Enter angle a (1-89 degrees): ");
     scanf("%lf", &angle);
 
-    printf("Введите длину основания: ");
+    printf("Enter base length: ");
     scanf("%d", &base);
     printf("\n");
 
