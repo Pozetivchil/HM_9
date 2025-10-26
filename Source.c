@@ -20,7 +20,6 @@ int main()
     printf("\n");
 
     double rad = angle * 3.14 / 180.0;
-
     int height = (int)((base / 2.0) * tan(rad) + 0.5);
 
     for (int i = 0; i < height; i++) 
